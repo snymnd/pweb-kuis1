@@ -27,22 +27,22 @@
                     <tr>
                         <td>TEMPAT TANGGAL LAHIR</td>
                         <td>:</td>
-                        <td><input type="text" name="tempat" id="tempat"></td>
+                        <td><input type="date" name="ttl" id="ttl"></td>
                     </tr>
                     <tr>
                         <td>KELURAHAN/DESA</td>
                         <td>:</td>
-                        <td><input type="text" name="tempat" id="tempat"></td>
+                        <td><input type="text" name="desa" id="desa" required></td>
                     </tr>
                     <tr>
                         <td>KECAMATAN</td>
                         <td>:</td>
-                        <td><input type="text" name="tempat" id="tempat"></td>
+                        <td><input type="text" name="kecamatan" id="kecamatan" required></td>
                     </tr>
                     <tr>
                         <td>NOMOR TELEPON</td>
                         <td>:</td>
-                        <td><input type="number" name="tempat" id="tempat"></td>
+                        <td><input type="text" name="telp" id="telp" ></td>
                     </tr>
                     <tr>
                         <td style="vertical-align: top;" >JENIS LOMBA</td>
@@ -86,20 +86,46 @@
         <script>
             // add check when clicked
         const name = document.getElementById('nama');
-        const email = document.getElementById('email');
-        const password = document.getElementById('password');
+        const ttl = document.getElementById('ttl');
+        const desa = document.getElementById('desa');
+        const kecamatan = document.getElementById('kecamatan');
+        const telp = document.getElementById('telp');
+
+        const list = document.querySelectorAll('ol li');
 
         function letters (name) {
             return /^[a-zA-Z ]+$/.test(name);
         }
 
-        const list = document.querySelectorAll('ol li');
-        list.forEach((item) => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('checked');
-            })
-        })
+        function numbers (telp) {
+            return /^[0-9+]+$/.test(telp);
+        }
 
+        name.addEventListener ('blur', function (e) {
+            let name_value = name.value ;
+            if (!letters(name_value) && name_value.length > 0) {
+                alert( 'Please enter your name in letters' );
+                event.target.style.background = 'pink';
+            } else {
+                event.target.style.background = '';
+            }
+        });
+
+        telp.addEventListener ('blur', function (e) {
+            let telp_value = telp.value ;
+            if (!numbers(telp_value) && telp_value.length > 0) {
+                alert( 'Please enter your phone number in numbers' );
+                event.target.style.background = 'pink';
+            } else {
+                event.target.style.background = '';
+            }
+        });
+
+        list.forEach (item => {
+            item.addEventListener ('click', function (e) {
+                item.classList.toggle('checked');
+            });
+        });
 
         </script>
 </body>

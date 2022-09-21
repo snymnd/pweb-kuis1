@@ -39,7 +39,27 @@ form {
 
 ol > li{
     font-weight : 600;
+    cursor: pointer;
 }
+ol > li:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+}
+ol > li:active {
+    background-color: gray;
+
+}
+
+.checked {
+    color: green;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
 body{
     font-weight : bold;
 }
@@ -47,9 +67,6 @@ body{
 .list {
     font-weight: 0;
 }
-
-
-
 
 input {
     padding: 0.5rem;
